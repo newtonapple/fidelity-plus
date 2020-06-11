@@ -9,28 +9,26 @@ let Positions = (function () {
             } = currentValues(nodes),
             pending = pendingValues(),
             settledTotal = total + pending.total;
-        console.log('Fidelity+: added % current total & % settled total to the positions table.');
-        console.log({
-            absTotal: absTotal,
-            posTotal: posTotal,
-            currentTotal: total,
-            settledTotal: settledTotal,
-            values: values,
-            pending: pending
-        });
+        console.log(
+            'Fidelity+: ' +
+            'current total: $' + (total / 100).toFixed(2),
+            ', settled total: $' + (settledTotal / 100).toFixed(2),
+            ', absolute total: $' + (absTotal / 100).toFixed(2),
+            ', positive total: $' + (absTotal / 100).toFixed(2),
+            ', pending: $' + (pending.total / 100).toFixed(2),
+        );
         headerNodes().forEach(function (th) {
             th.insertAdjacentHTML(
                 'afterend',
-                '<th><span class="magicgrid--stacked-data-title"> % Current Total </span></th>' +
-                '<th><span class="magicgrid--stacked-data-title"> % Settled Total </span></th>'
+                '<th><span class="magicgrid--stacked-data-title"> % Assets </span></th>'
             );
         });
 
         nodes.forEach(function (td, i) {
             td.insertAdjacentHTML(
                 'afterend',
-                '<td>' + (values[i] / absTotal * 100).toFixed(2) + '% </td>' +
-                '<td>' + (values[i] / settledTotal * 100).toFixed(2) + '% </td>');
+                '<td>' + (values[i] / absTotal * 100).toFixed(2) + '% </td>'
+            );
         });
     }
 
