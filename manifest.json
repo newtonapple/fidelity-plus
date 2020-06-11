@@ -6,7 +6,13 @@
   "content_scripts": [
     {
       "matches": ["*://*.fidelity.com/*"],
-      "js": ["utils.js", "routes.js", "positions.js", "init.js"]
+      "js": [
+        "utils.js",
+        "routes.js",
+        "activity.js",
+        "positions.js",
+        "init.js"
+      ]
     }
   ]
 }

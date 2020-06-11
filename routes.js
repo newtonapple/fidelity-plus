@@ -32,6 +32,7 @@ class Routes {
             if (route) {
                 for (let changed of changes) {
                     for (let node of changed.addedNodes) {
+                        //   if (node.id || node.className) console.log(node.nodeName + '#' + node.id + '  .' + node.className);
                         if (route.matchNode(node)) return route.run(node);
                     }
                 }
